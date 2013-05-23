@@ -1,0 +1,24 @@
+<div class="like">
+		
+		<% if current_user == @post.user %>
+			You can't like your own post
+		<% elsif current_user.likes_post?(@post) %>
+			<%= link_to "Unlike", post_like_path(@post), method: :delete %>
+		<% else %>
+			<%= link_to "like", post_like_path(@post), method: :post %>
+		<% end %>
+
+	<p><%= pluralize @post.likes.size, "like" %></p>
+
+	<ul>
+		<% @post.liked_users.each do |user| %>
+		<li>
+			<%= link_to user_path(user) do %>
+				<%= image_tag(user.avatar(:thumbnail)) %>
+				<%= user.username %>
+			<% end %>
+		</li>
+		<% end %>	
+	</ul> 
+
+	</div>

@@ -1,0 +1,26 @@
+<%= image_tag @post.image(:large) if @post.image? %>
+
+<h2><%= @post.title %></h2>
+
+<%= md @post.body %>
+
+<div class="author":>
+	<%= image_tag @post.user.avatar(:medium) %>
+	<%= link_to @post.user.username, user_path(@post.user) %>
+
+</div>
+
+<div class="posted _at">
+	<%= @post.created_at %>
+</div>
+
+	<%= render "tags" %>
+
+	<%= render "like" if current_user %>
+
+	<%= render "comments" %>
+
+	<%= render "commentsform" %>
+
+	<%= render "actions" if current_user and current_user == @post.user %>
+

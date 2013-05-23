@@ -1,0 +1,8 @@
+<div class="tags"
+	<h3>Tags: </h3>
+
+	<% @post.tags.each do |t| %>
+		<li><%= link_to t.name, root_path(tag: t.name) %></li>
+	<% end %>
+	</ul>
+</div>

@@ -1,0 +1,13 @@
+<h2> Edit Account</h2>
+
+<%= simple_form_for @user, url: account_path do |f| %>
+
+	<%= f.input :name %>
+	<%= f.input :email %>
+	<%= f.input :username %>
+	<%= f.input :avatar %>
+	<%= f.input :bio %>
+
+	<%= f.button :submit %>
+
+<% end %>

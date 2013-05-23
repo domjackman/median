@@ -1,0 +1,8 @@
+<% if current_user %>
+	<%= simple_form_for [@post, Comment.new], url: post_user_comments_path(@post) do |f| %>
+		<%= f.input :body %>
+		<%= f.button :submit %>
+	<% end %>
+<% else %>
+	<p> You need to be logged in to comment. </p>
+<% end %>

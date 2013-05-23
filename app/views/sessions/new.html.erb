@@ -1,0 +1,7 @@
+<h2>Log in</h2>
+
+<%= simple_form_for :login, url: session_path do |f| %>
+	<%= f.input :username, label: "Username / Email" %>
+	<%= f.input :password %>
+	<%= f.button :submit, "Log in" %>
+<% end %>

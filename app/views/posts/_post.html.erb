@@ -1,0 +1,25 @@
+	<%= image_tag post.image(:medium) if post.image? %>
+
+	<h2><%= link_to highlight(post.title, @query || ""), post_path(post) %></h2>
+
+	<p> <%= post.body %></p>
+
+	<div class="posted _at">
+		Posted at <%= post.created_at %>
+	</div>
+
+	<dive class= "author">
+		By <%= link_to post.user.username, user_path(post.user) %>
+	</div>
+
+	<div class ="category">
+		<%= link_to post.category.title, category_path(post.category) if post.category.present? %>
+	</div>
+
+	<div class="likes">
+		<%= pluralize post.likes.size, "like" %>
+	</div>
+
+	<% if post.is_featured? %>
+		<p>Featured post</p>
+	<% end %>

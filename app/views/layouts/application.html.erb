@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mendian</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<header>
+	<% if flash[:alert].present? %>
+		<div class="alert"><%= flash[:alert] %></div>
+	<% end %>
+
+	<% if flash[:error].present? %>
+		<div class="error"><%= flash[:error] %></div>
+	<% end %>
+
+
+		<h1><%= link_to "Median", root_path %></h1>
+		<nav>
+			<% if current_user %>
+					<strong>
+
+						<%= image_tag current_user.avatar(:thumbnail) %>	
+						<%= current_user.username %>
+
+					</strong>
+
+
+				<%= link_to "New post", new_post_path %>
+				<%= link_to "Account", edit_account_path %>
+				<%= link_to "log out", session_path, method: :delete %>
+			<% else %>
+				<%= link_to "Log in", new_session_path %>
+				<%= link_to "Sign up", new_user_path %>
+			<% end %>
+		</nav>
+
+		<%= simple_form_for :search, url: search_path do|f| %>
+		<%= f.input :query %>
+		<%= f.button :submit, "Go" %>
+		
+	<% end %>
+
+
+	</header>
+
+
+
+	<%= yield %>
+
+	<footer>
+		<p>&copy; Median 2013</p>
+	</footer>
+
+
+
+</body>
+</html>

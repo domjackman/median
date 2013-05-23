@@ -1,0 +1,14 @@
+<ul>
+	<% @categories.each do |cat| %>
+
+		<li>
+			<%= image_tag cat.image(:medium) if cat.image? %>
+
+			<%= link_to cat.title, category_path(cat) %>
+
+			<%= pluralize cat.posts.size, "post" %>
+		</li>
+
+	<% end %>
+
+</ul>
