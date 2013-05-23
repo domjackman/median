@@ -64,4 +64,16 @@ Mendian::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  # Paperclip S3
+
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket: "testmedian",
+      access_key_id: "AKIAIC63P2NMI4ECKWQA",
+      secret_access_key: "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"
+    }
+  }
+
 end

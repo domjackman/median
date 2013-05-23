@@ -37,6 +37,10 @@ gem 'stringex'
 
 gem 'rdiscount'
 
+#Amazon S3
+
+gem 'aws-sdk'
+
 
 
 # Gems used only for assets and not required
